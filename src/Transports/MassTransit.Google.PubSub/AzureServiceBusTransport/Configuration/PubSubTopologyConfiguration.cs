@@ -20,8 +20,6 @@
 
             _sendTopology = new ServiceBusSendTopology();
             _sendTopology.ConnectSendTopologyConfigurationObserver(new DelegateSendTopologyConfigurationObserver(GlobalTopology.Send));
-            _sendTopology.TryAddConvention(new SessionIdSendTopologyConvention());
-            _sendTopology.TryAddConvention(new PartitionKeySendTopologyConvention());
 
             _publishTopology = new ServiceBusPublishTopology(messageTopology);
             _publishTopology.ConnectPublishTopologyConfigurationObserver(new DelegatePublishTopologyConfigurationObserver(GlobalTopology.Publish));
